@@ -19,13 +19,16 @@ const log = document.querySelector(".waterDone");
 let error = document.getElementById("invalidError");
 // let x = document.getElementById("minus").Disabled;
 
+//try to get local storage to work
+// let waterInLocal = locatStorage.setItem("inputValue");
+
 // create the function for increasing button (plus)
 
 plus.addEventListener("click", function () {
   inputValue++;
   input.value = inputValue;
 
-  if (inputValue > 10 || inputValue < 1) {
+  if (inputValue >= 12 || inputValue < 1) {
     error.innerHTML = "Limit Over";
   } else {
     error.innerHTML = "";
@@ -38,8 +41,14 @@ minus.addEventListener("click", function () {
   inputValue--;
   input.value = inputValue;
 
-  if (inputValue > 10 || inputValue < 1) {
+  if (inputValue <= 0 || inputValue >= 12) {
     error.innerHTML = "Limit Under";
+    // disable the - btn
+    minus.disabled = true;
+    //reset btn
+    input.value = 0;
+    //enable the but
+    minus.disabled = false;
   } else {
     error.innerHTML = "";
   }
@@ -53,12 +62,32 @@ const logH3 = document.querySelector(".waterDone");
 inputH3.addEventListener("input", updateValue);
 
 function updateValue(e) {
-  logH3.innerHTML = inputValue;
+  if (inputValue <= 1) {
+    logH3.innerHTML = `${inputValue} Cup`;
+  } else {
+    logH3.innerHTML = `${inputValue} Cups`;
+  }
 }
 
-// function myFunctionDisable() {
-//   let x = document.getElementById("minus").disabled;
-//   if (inputValue <= -1) {
-//     document.getElementById("demo").innerHTML = x;
-//   }
-// }
+//add small cup of water to img src
+function addGlassOfH20() {
+  if (inputValue >= 1) {
+    const parentCup = document.getElementById("parentCup");
+    let newCupImg = document.createElement("img");
+    newCupImg.src = "/images/greenWaterCup.png";
+    newCupImg.style.width = "90px";
+    parentCup.appendChild(newCupImg);
+  } else {
+    console.log("do nothing");
+    //need to put something like an error
+  }
+}
+
+//not working :(
+function removeGlassOfH20() {
+  parentCup.removeChild(newCupImg);
+}
+//create
+//append
+//link
+//be able to remove and add

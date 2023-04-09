@@ -8,16 +8,22 @@
     <link rel="stylesheet" href="/3rdWaterApp/style3.css" />
   </head>
   <body>
+    <h2 id="waterTrackerTitle">Water Tracker</h2>
     <h1>Goal: 10 Cups</h1>
-    <h3 class="waterDone">0</h3>
+    <!-- add small cup of water (img) with oz amount also -->
+    <div id="parentCup">
+      <img src="/images/greenWaterCup.png" class="cupOfWater"></img>
+    </div>
+
+    <h3 class="waterDone"></h3>
     <div class="circleBackGround">
-      <img src="/images/vase7.jpg" alt="vase" />
+      <img class="addedCups" src="/images/vase7.jpg" alt="vase" />
     </div>
 
     <p>Enter cups of water</p>
-    <button class="btn+" id="plus">+</button>
+    <button class="btn+" onclick="addGlassOfH20()" id="plus">+</button>
     <input id="input" class="waterInput" type="text" value="0" />
-    <button class="btn-" id="minus">-</button>
+    <button class="btn-" onclick="removeGlassOfH20()" id="minus">-</button>
     <p id="invalidError"></p>
     <!-- <p>Cups</p> -->
     <footer>

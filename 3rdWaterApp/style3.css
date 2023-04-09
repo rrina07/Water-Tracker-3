@@ -12,6 +12,9 @@ body {
   margin: 60px;
   height: 100vh;
 }
+#waterTrackerTitle {
+  margin-bottom: 30px;
+}
 h1 {
   font-size: 55px;
   margin-bottom: 10px;
@@ -34,6 +37,9 @@ img {
   width: 200px;
   border-radius: 50%;
   margin-top: 50px;
+}
+.cupOfWater {
+  width: 90px;
 }
 button {
   width: 50px;
