@@ -12,7 +12,6 @@ let plus = document.getElementById("plus");
 let input = document.getElementById("input");
 let minus = document.getElementById("minus");
 let inputValue = input.value;
-
 const log = document.querySelector(".waterDone");
 
 //
@@ -34,6 +33,7 @@ plus.addEventListener("click", function () {
     error.innerHTML = "";
   }
   updateValue();
+  addGlassOfH20();
 });
 
 // create the function for decreasing button (minus)
@@ -52,13 +52,13 @@ minus.addEventListener("click", function () {
   } else {
     error.innerHTML = "";
   }
+  removeGlassOfH20();
   updateValue();
 });
 
 const inputH3 = document.querySelector(".waterInput");
 let waterValue = inputValue;
 const logH3 = document.querySelector(".waterDone");
-
 inputH3.addEventListener("input", updateValue);
 
 function updateValue(e) {
@@ -70,9 +70,10 @@ function updateValue(e) {
 }
 
 //add small cup of water to img src
+
 function addGlassOfH20() {
-  if (inputValue >= 1) {
-    const parentCup = document.getElementById("parentCup");
+  if (inputValue >= 2) {
+    let parentCup = document.getElementById("parentCup");
     let newCupImg = document.createElement("img");
     newCupImg.src = "/images/greenWaterCup.png";
     newCupImg.style.width = "90px";
@@ -85,7 +86,9 @@ function addGlassOfH20() {
 
 //not working :(
 function removeGlassOfH20() {
-  parentCup.removeChild(newCupImg);
+  let d = document.querySelector("#parentCup");
+  let d_nested = document.querySelector("img");
+  let deletedImage = parentCup.removeChild(parentCup.lastElementChild);
 }
 //create
 //append
