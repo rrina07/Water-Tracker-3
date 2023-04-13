@@ -69,6 +69,7 @@ p {
   border: 1px solid rgb(192, 192, 192);
   text-align: center;
   outline: none;
+  cursor: pointer;
 }
 h2 {
   font-size: 40px;
@@ -76,4 +77,7 @@ h2 {
 }
 #invalidError {
   font-size: 16px;
+}
+#input:hover {
+  background-color: darkgrey;
 }

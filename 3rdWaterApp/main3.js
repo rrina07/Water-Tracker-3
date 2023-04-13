@@ -47,13 +47,14 @@ minus.addEventListener("click", function () {
     minus.disabled = true;
     //reset btn
     input.value = 0;
-    //enable the but
+    //enable the btn
     minus.disabled = false;
   } else {
     error.innerHTML = "";
   }
-  removeGlassOfH20();
+
   updateValue();
+  removeGlassOfH20();
 });
 
 const inputH3 = document.querySelector(".waterInput");
@@ -72,11 +73,12 @@ function updateValue(e) {
 //add small cup of water to img src
 
 function addGlassOfH20() {
-  if (inputValue >= 2) {
+  if (inputValue >= 1) {
     let parentCup = document.getElementById("parentCup");
     let newCupImg = document.createElement("img");
     newCupImg.src = "/images/greenWaterCup.png";
     newCupImg.style.width = "90px";
+    newCupImg.className = "addedCups";
     parentCup.appendChild(newCupImg);
   } else {
     console.log("do nothing");
@@ -86,10 +88,14 @@ function addGlassOfH20() {
 
 //not working :(
 function removeGlassOfH20() {
-  let d = document.querySelector("#parentCup");
-  let d_nested = document.querySelector("img");
-  let deletedImage = parentCup.removeChild(parentCup.lastElementChild);
+  // var d = document.querySelector("parentCup");
+  // var dParent = document.querySelector(".circleBackGround");
+
+  let deletedImage = parentCup.removeChild(parentCup.firstElementChild);
+
+  deletedImage.remove();
 }
+
 //create
 //append
 //link
